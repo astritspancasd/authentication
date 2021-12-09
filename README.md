@@ -1,3 +1,3 @@
-# Get started with authentication app
+# Authentication app
 
 Check [demo](https://authentication-r61.netlify.app/)
