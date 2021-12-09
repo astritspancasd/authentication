@@ -6,7 +6,6 @@ import { CssBaseline } from "@material-ui/core";
 import { Main } from "./Main";
 import { SnackbarProvider } from "notistack";
 import { SnackbarUtilsConfigurator } from "./ui/SnackbarUtils";
-import { WebSocketProvider } from "./context/web-socket";
 
 const App = () => {
   return (
@@ -14,11 +13,9 @@ const App = () => {
       <SnackbarUtilsConfigurator />
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <WebSocketProvider>
         <AuthProvider>
           <Main />
         </AuthProvider>
-        </WebSocketProvider>
       </ThemeProvider>
     </SnackbarProvider>
   );
