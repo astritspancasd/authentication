@@ -4,8 +4,6 @@ import SnackbarUtils from "../ui/SnackbarUtils";
 
 import { loginRequest } from "../http/requests";
 
-let socket;
-
 export const Context = createContext({
   token: "",
 });
@@ -81,7 +79,6 @@ export const AuthProvider = ({ children }) => {
       value={{
         token,
         decoded,
-        socket,
         instance,
         username,
         password,
