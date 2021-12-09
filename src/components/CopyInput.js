@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  FormControlLabel,
-  Switch,
-  Typography,
-} from "@material-ui/core";
+import { Box, FormControlLabel, Switch, Typography } from "@material-ui/core";
 import styled from "styled-components";
 import { useAuthContext } from "../context/auth";
 import { theme } from "../theme";
@@ -18,15 +13,12 @@ const TokenWrapper = styled(Box)({
 
 export const CopyInput = () => {
   const [withBearer, setWithBearer] = useState(true);
-  const [open, setOpen] = useState(false);
   const { token } = useAuthContext();
 
   const handleChange = () => setWithBearer((prevState) => !prevState);
-  const handleOpen = () => setOpen((prevState) => !prevState);
 
   const handleCopyInputValue = () => {
     navigator.clipboard.writeText(withBearer ? `Bearer ${token}` : token);
-    handleOpen();
     SnackbarUtils.success("Copied");
   };
 
@@ -49,7 +41,10 @@ export const CopyInput = () => {
         <Typography variant="body2">Click to copy</Typography>
       </Box>
       <Box />
-      <Box onClick={handleCopyInputValue}>{token}</Box>
+      <Box onClick={handleCopyInputValue}>
+        {withBearer && "Bearer"}
+        {token}
+      </Box>
     </TokenWrapper>
   );
 };
