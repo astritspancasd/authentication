@@ -8,9 +8,7 @@ import { CopyInput } from "./components/CopyInput";
 import { DecodedToken } from "./components/DecodedToken";
 import { useAuthContext } from "./context/auth";
 
-const Container = styled(Grid)({
-  
-});
+const Container = styled(Grid)({});
 
 const Wrapper = styled(Card)({
   padding: theme.spacing(1),
@@ -33,17 +31,25 @@ export const Main = () => {
       <Grid item container xs={12}>
         <Grid xs={12} item>
           <ComponentWrapper>
-            {loading ? <Skeleton animation="wave" height={50}/> : <Login />}
+            <Login />
           </ComponentWrapper>
         </Grid>
         <Grid xs={6} item>
           <ComponentWrapper>
-            {loading ? <Skeleton animation="wave" height={100}/> : <CopyInput />}
+            {loading ? (
+              <Skeleton animation="wave" height={100} />
+            ) : (
+              <CopyInput />
+            )}
           </ComponentWrapper>
         </Grid>
         <Grid xs={6} item>
           <ComponentWrapper>
-            {loading ? <Skeleton animation="wave" height={300}/> : <DecodedToken />}
+            {loading ? (
+              <Skeleton animation="wave" height={300} />
+            ) : (
+              <DecodedToken />
+            )}
           </ComponentWrapper>
         </Grid>
       </Grid>

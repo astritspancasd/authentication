@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useAuthContext } from "../context/auth";
 import { theme } from "../theme";
 import SnackbarUtils from "../ui/SnackbarUtils";
+import { Alert } from "@material-ui/lab";
 
 const TokenWrapper = styled(Box)({
   wordBreak: "break-all",
@@ -13,7 +14,7 @@ const TokenWrapper = styled(Box)({
 
 export const CopyInput = () => {
   const [withBearer, setWithBearer] = useState(true);
-  const { token } = useAuthContext();
+  const { token, autoRefetching } = useAuthContext();
 
   const handleChange = () => setWithBearer((prevState) => !prevState);
 
@@ -24,6 +25,13 @@ export const CopyInput = () => {
 
   return (
     <TokenWrapper>
+      {!autoRefetching && (
+        <Box pt={2} pb={2}>
+          <Alert severity="warning">
+            Token might be invalid because auto refetching is turned off!
+          </Alert>
+        </Box>
+      )}
       <Box pb={2}>
         <FormControlLabel
           control={
