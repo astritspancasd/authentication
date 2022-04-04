@@ -1,8 +1,17 @@
-import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
-import jwt_decode from "jwt-decode";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import SnackbarUtils from "../ui/SnackbarUtils";
 
 import { loginRequest } from "../http/requests";
+import { decodeToken } from "../utils/jwt";
+import { fetchCredentials, setCredentials } from "../utils/credentials";
+import { fromJson } from "../utils/json";
+import { storage } from "../utils/storage";
 
 export const Context = createContext({
   token: "",
@@ -12,39 +21,12 @@ export const Context = createContext({
 
 export const useAuthContext = () => useContext(Context);
 
-const fetchCredentials = () => {
-  const credentials = window.localStorage.getItem("credentials");
-
-  if (!credentials)
-    return {
-      instance: "",
-      username: "",
-      password: "",
-    };
-
-  const { instance, username, password } = JSON.parse(credentials);
-
-  if (!instance || !username || !password)
-    return {
-      instance: "",
-      username: "",
-      password: "",
-    };
-
-  return { instance, username, password };
-};
-
-const setCredentials = ({ instance, username, password }) => {
-  const credentials = JSON.stringify({ instance, username, password });
-  window.localStorage.setItem("credentials", credentials);
-};
-
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [decoded, setDecoded] = useState("");
   const [loading, setLoading] = useState(false);
   const [autoRefetching, setAutoRefetching] = useState(
-    Boolean(JSON.parse(window.localStorage.getItem("autoRefetching")))
+    Boolean(fromJson(storage.get("autoRefetching")))
   );
   const [{ instance, username, password }, setState] = useState(
     fetchCredentials()
@@ -59,21 +41,21 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       const res = await loginRequest({ instance, username, password });
       setToken(res.data);
-      setDecoded(jwt_decode(res.data));
+      setDecoded(decodeToken(res.data));
       SnackbarUtils.success("Authentication successful");
     } catch (error) {
       SnackbarUtils.error("Authentication failed");
     } finally {
       setLoading(false);
     }
-  }, [instance, username, password])
+  }, [instance, username, password]);
 
   const handleChange = (e) => {
     setState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const toggleAutoRefetching = () => {
-    window.localStorage.setItem("autoRefetching", !autoRefetching);
+    storage.set("autoRefetching", !autoRefetching);
     setAutoRefetching((prevState) => !prevState);
   };
 

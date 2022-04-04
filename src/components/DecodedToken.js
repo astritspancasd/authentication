@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthContext } from "../context/auth";
 import { Box } from "@material-ui/core";
 import { theme } from "../theme";
+import { formatJson } from "../utils/json";
 import styled from "styled-components";
 
 const StyledContainer = styled(Box)({
@@ -18,7 +19,7 @@ export const DecodedToken = () => {
       {decoded && (
         <pre
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(decoded, null, 2),
+            __html: formatJson(decoded)
           }}
         />
       )}
