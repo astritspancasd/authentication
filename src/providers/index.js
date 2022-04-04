@@ -1,3 +1,3 @@
 export { NotificationProvider } from './NotificationProvider'
 export { MaterialUiProvider } from './MaterialUiProvider'
-export { AuthProvider } from './AuthProvider'
+export { AuthProvider, useAuthContext } from './AuthProvider'

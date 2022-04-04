@@ -1,11 +1,9 @@
 import React from "react";
 import { Card, Grid } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
-import { Login } from "./Login";
-import { theme } from "../ui/theme";
-import { CopyInput } from "./CopyInput";
-import { DecodedToken } from "./DecodedToken";
-import { useAuthContext } from "../providers/AuthProvider";
+import { theme } from "../ui";
+import { DecodedToken, CopyInput, Login } from "./";
+import { useAuthContext } from "../providers";
 import styled from "styled-components";
 
 const Container = styled(Grid)({});

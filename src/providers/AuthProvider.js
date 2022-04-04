@@ -5,13 +5,10 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import SnackbarUtils from "../ui/SnackbarUtils";
+import { SnackbarUtils } from "../ui";
 
-import { loginRequest } from "../http/requests";
-import { decodeToken } from "../utils/jwt";
-import { fetchCredentials, setCredentials } from "../utils/credentials";
-import { fromJson } from "../utils/json";
-import { storage } from "../utils/storage";
+import { loginRequest } from "../http";
+import { decodeToken, fromJson, storage, fetchCredentials, setCredentials } from "../utils";
 
 export const Context = createContext({
   token: "",

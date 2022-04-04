@@ -1,4 +1,4 @@
-import { http } from "./axios";
+import { http } from ".";
 
 export const loginRequest = ({ instance, username, password }) =>
   http({

@@ -1,5 +1,5 @@
 import { SnackbarProvider } from "notistack";
-import { SnackbarUtilsConfigurator } from "../ui/SnackbarUtils";
+import { SnackbarUtilsConfigurator } from "../ui";
 
 export const NotificationProvider = (props) => {
   const { children } = props;

@@ -1,5 +1,5 @@
 import { useSnackbar } from "notistack";
-import Slide from "@material-ui/core/Slide";
+import { Slide } from "@material-ui/core";
 import React from "react";
 
 const InnerSnackbarUtilsConfigurator = (props) => {
@@ -18,7 +18,7 @@ export const SnackbarUtilsConfigurator = () => {
   );
 };
 
-const main = {
+export const SnackbarUtils = {
   success(msg) {
     this.toast(msg, "success");
   },
@@ -42,4 +42,3 @@ const main = {
     });
   },
 };
-export default main;

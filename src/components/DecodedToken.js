@@ -1,8 +1,8 @@
 import React from "react";
-import { useAuthContext } from "../providers/AuthProvider";
+import { useAuthContext } from "../providers";
 import { Box } from "@material-ui/core";
-import { theme } from "../ui/theme";
-import { formatJson } from "../utils/json";
+import { theme } from "../ui";
+import { formatJson } from "../utils";
 import styled from "styled-components";
 
 const StyledContainer = styled(Box)({

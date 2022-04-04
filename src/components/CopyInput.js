@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Box, FormControlLabel, Switch, Typography } from "@material-ui/core";
-import { useAuthContext } from "../providers/AuthProvider";
+import { useAuthContext } from "../providers";
 import { Alert } from "@material-ui/lab";
-import { theme } from "../ui/theme";
+import { theme, SnackbarUtils } from "../ui";
 import styled from "styled-components";
-import SnackbarUtils from "../ui/SnackbarUtils";
 
 const StyledContainer = styled(Box)({
   wordBreak: "break-all",
