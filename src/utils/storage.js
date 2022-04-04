@@ -3,7 +3,7 @@ export const storage = {
     localStorage.setItem(key, data);
   },
   get: (key) => {
-    localStorage.getItem(key);
+    return localStorage.getItem(key);
   },
   clear: () => {
     localStorage.clear();

@@ -11,5 +11,5 @@ export const isJson = (data) => {
 };
 
 export const formatJson = (data, replacer = null, space = 2) => {
-  JSON.stringify(data, replacer, space);
+  return JSON.stringify(data, replacer, space);
 };
