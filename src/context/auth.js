@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
     }, 1000 * 60 * 4);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [autoRefetching, login]);
 
   return (
     <Context.Provider

@@ -1,6 +1,6 @@
 export const toJson = (data) => JSON.stringify(data);
 
-export const fromJson = (data) => JSON.parse(data);
+export const fromJson = (data) => (isJson(data) ? JSON.parse(data) : null);
 
 export const isJson = (data) => {
   try {
