@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, FormControlLabel, Switch, Typography } from "@material-ui/core";
-import { useAuthContext } from "../context/auth";
+import { useAuthContext } from "../providers/AuthProvider";
 import { Alert } from "@material-ui/lab";
 import { theme } from "../theme";
 import styled from "styled-components";
@@ -14,7 +14,7 @@ const StyledContainer = styled(Box)({
 
 export const CopyInput = () => {
   const [withBearer, setWithBearer] = useState(true);
-  
+
   const { token, autoRefetching } = useAuthContext();
 
   const handleChange = () => setWithBearer((prevState) => !prevState);

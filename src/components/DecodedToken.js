@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuthContext } from "../context/auth";
+import { useAuthContext } from "../providers/AuthProvider";
 import { Box } from "@material-ui/core";
 import { theme } from "../theme";
 import { formatJson } from "../utils/json";

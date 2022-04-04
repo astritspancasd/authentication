@@ -7,7 +7,7 @@ import {
   FormControlLabel,
 } from "@material-ui/core";
 import { Cached as CachedIcon } from "@material-ui/icons";
-import { useAuthContext } from "../context/auth";
+import { useAuthContext } from "../providers/AuthProvider";
 import styled from "styled-components";
 
 const StyledContainer = styled(Box)({

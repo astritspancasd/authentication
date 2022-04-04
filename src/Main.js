@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { theme } from "./theme";
 import { CopyInput } from "./components/CopyInput";
 import { DecodedToken } from "./components/DecodedToken";
-import { useAuthContext } from "./context/auth";
+import { useAuthContext } from "./providers/AuthProvider";
 
 const Container = styled(Grid)({});
 
