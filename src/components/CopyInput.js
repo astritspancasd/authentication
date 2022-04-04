@@ -6,7 +6,7 @@ import { theme } from "../theme";
 import SnackbarUtils from "../ui/SnackbarUtils";
 import { Alert } from "@material-ui/lab";
 
-const TokenWrapper = styled(Box)({
+const StyledContainer = styled(Box)({
   wordBreak: "break-all",
   padding: theme.spacing(2),
   fontSize: "12px",
@@ -24,7 +24,7 @@ export const CopyInput = () => {
   };
 
   return (
-    <TokenWrapper>
+    <StyledContainer>
       {!autoRefetching && (
         <Box pt={2} pb={2}>
           <Alert severity="warning">
@@ -53,6 +53,6 @@ export const CopyInput = () => {
         {withBearer && "Bearer"}
         {token}
       </Box>
-    </TokenWrapper>
+    </StyledContainer>
   );
 };
