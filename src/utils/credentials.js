@@ -1,24 +1,20 @@
 import { fromJson, toJson } from "./json";
 import { storage } from "./storage";
 
+const emptyCredentials = {
+  instance: "",
+  username: "",
+  password: "",
+};
+
 export const fetchCredentials = () => {
   const credentials = storage.get("credentials");
 
-  if (!credentials)
-    return {
-      instance: "",
-      username: "",
-      password: "",
-    };
+  if (!credentials) return emptyCredentials;
 
   const { instance, username, password } = fromJson(credentials);
 
-  if (!instance || !username || !password)
-    return {
-      instance: "",
-      username: "",
-      password: "",
-    };
+  if (!instance || !username || !password) return emptyCredentials;
 
   return { instance, username, password };
 };
