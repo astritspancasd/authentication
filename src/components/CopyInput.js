@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Box, FormControlLabel, Switch, Typography } from "@material-ui/core";
-import styled from "styled-components";
 import { useAuthContext } from "../context/auth";
-import { theme } from "../theme";
-import SnackbarUtils from "../ui/SnackbarUtils";
 import { Alert } from "@material-ui/lab";
+import { theme } from "../theme";
+import styled from "styled-components";
+import SnackbarUtils from "../ui/SnackbarUtils";
 
 const StyledContainer = styled(Box)({
   wordBreak: "break-all",
@@ -14,6 +14,7 @@ const StyledContainer = styled(Box)({
 
 export const CopyInput = () => {
   const [withBearer, setWithBearer] = useState(true);
+  
   const { token, autoRefetching } = useAuthContext();
 
   const handleChange = () => setWithBearer((prevState) => !prevState);

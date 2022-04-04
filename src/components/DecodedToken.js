@@ -1,10 +1,10 @@
 import React from "react";
 import { useAuthContext } from "../context/auth";
 import { Box } from "@material-ui/core";
-import styled from "styled-components";
 import { theme } from "../theme";
+import styled from "styled-components";
 
-const DecodedTokenWrapper = styled(Box)({
+const StyledContainer = styled(Box)({
   wordBreak: "break-all",
   padding: theme.spacing(2),
   fontSize: "12px",
@@ -14,7 +14,7 @@ export const DecodedToken = () => {
   const { decoded } = useAuthContext();
   
   return (
-    <DecodedTokenWrapper>
+    <StyledContainer>
       {decoded && (
         <pre
           dangerouslySetInnerHTML={{
@@ -22,6 +22,6 @@ export const DecodedToken = () => {
           }}
         />
       )}
-    </DecodedTokenWrapper>
+    </StyledContainer>
   );
 };
