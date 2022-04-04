@@ -4,8 +4,6 @@ import { storage } from "./storage";
 export const fetchCredentials = () => {
   const credentials = storage.get("credentials");
 
-  console.log(credentials)
-
   if (!credentials)
     return {
       instance: "",

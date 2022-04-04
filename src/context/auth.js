@@ -32,8 +32,6 @@ export const AuthProvider = ({ children }) => {
     fetchCredentials()
   );
 
-  console.log( fetchCredentials())
-
   const login = useCallback(async () => {
     if (!instance || !username || !password) return;
 
