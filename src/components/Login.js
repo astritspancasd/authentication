@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   TextField,
@@ -5,27 +6,34 @@ import {
   Switch,
   FormControlLabel,
 } from "@material-ui/core";
-import React from "react";
 import { Cached as CachedIcon } from "@material-ui/icons";
-import styled from "styled-components";
 import { useAuthContext } from "../context/auth";
+import styled from "styled-components";
 
-const LoginWrapper = styled(Box)({
+const StyledContainer = styled(Box)({
   display: "flex",
 });
 
-const InstanceInput = styled(TextField)({
+const StyledInstanceInput = styled(TextField)({
   width: "400px",
 });
 
 export const Login = () => {
-  const { instance, username, password, login, loading, handleChange, autoRefetching, toggleAutoRefetching } =
-    useAuthContext();
+  const {
+    instance,
+    username,
+    password,
+    login,
+    loading,
+    handleChange,
+    autoRefetching,
+    toggleAutoRefetching,
+  } = useAuthContext();
 
   return (
-    <LoginWrapper>
+    <StyledContainer>
       <Box p={1}>
-        <InstanceInput
+        <StyledInstanceInput
           variant="outlined"
           label="Full login endpoint url"
           size="small"
@@ -80,6 +88,6 @@ export const Login = () => {
           Authenticate
         </Button>
       </Box>
-    </LoginWrapper>
+    </StyledContainer>
   );
 };
