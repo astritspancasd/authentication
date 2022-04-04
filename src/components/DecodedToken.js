@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthContext } from "../providers/AuthProvider";
 import { Box } from "@material-ui/core";
-import { theme } from "../theme";
+import { theme } from "../ui/theme";
 import { formatJson } from "../utils/json";
 import styled from "styled-components";
 

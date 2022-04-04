@@ -1,5 +1,5 @@
 import React from "react";
-import { Main } from "./Main";
+import { Layout } from "./components/Layout";
 import { AuthProvider, MaterialUiProvider, NotificationProvider } from "./providers";
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
     <NotificationProvider>
       <MaterialUiProvider>
         <AuthProvider>
-          <Main />
+          <Layout />
         </AuthProvider>
       </MaterialUiProvider>
     </NotificationProvider>

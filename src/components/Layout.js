@@ -1,12 +1,12 @@
 import React from "react";
 import { Card, Grid } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
-import { Login } from "./components/Login";
+import { Login } from "./Login";
+import { theme } from "../ui/theme";
+import { CopyInput } from "./CopyInput";
+import { DecodedToken } from "./DecodedToken";
+import { useAuthContext } from "../providers/AuthProvider";
 import styled from "styled-components";
-import { theme } from "./ui/theme";
-import { CopyInput } from "./components/CopyInput";
-import { DecodedToken } from "./components/DecodedToken";
-import { useAuthContext } from "./providers/AuthProvider";
 
 const Container = styled(Grid)({});
 
@@ -15,7 +15,7 @@ const StyledComponentContainer = styled(Card)({
   margin: theme.spacing(1),
 });
 
-export const Main = () => {
+export const Layout = () => {
   const { loading } = useAuthContext();
 
   return (

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, FormControlLabel, Switch, Typography } from "@material-ui/core";
 import { useAuthContext } from "../providers/AuthProvider";
 import { Alert } from "@material-ui/lab";
-import { theme } from "../theme";
+import { theme } from "../ui/theme";
 import styled from "styled-components";
 import SnackbarUtils from "../ui/SnackbarUtils";
 
