@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, Grid } from "@material-ui/core";
+import { Card, Grid } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import { Login } from "./components/Login";
 import styled from "styled-components";
@@ -10,18 +10,10 @@ import { useAuthContext } from "./context/auth";
 
 const Container = styled(Grid)({});
 
-const Wrapper = styled(Card)({
+const StyledComponentContainer = styled(Card)({
   padding: theme.spacing(1),
   margin: theme.spacing(1),
 });
-
-const ComponentWrapper = ({ children }) => {
-  return (
-    <Box p={1}>
-      <Wrapper>{children}</Wrapper>
-    </Box>
-  );
-};
 
 export const Main = () => {
   const { loading } = useAuthContext();
@@ -30,27 +22,27 @@ export const Main = () => {
     <Container container>
       <Grid item container xs={12}>
         <Grid xs={12} item>
-          <ComponentWrapper>
+          <StyledComponentContainer>
             <Login />
-          </ComponentWrapper>
+          </StyledComponentContainer>
         </Grid>
         <Grid xs={6} item>
-          <ComponentWrapper>
+          <StyledComponentContainer>
             {loading ? (
               <Skeleton animation="wave" height={100} />
             ) : (
               <CopyInput />
             )}
-          </ComponentWrapper>
+          </StyledComponentContainer>
         </Grid>
         <Grid xs={6} item>
-          <ComponentWrapper>
+          <StyledComponentContainer>
             {loading ? (
               <Skeleton animation="wave" height={300} />
             ) : (
               <DecodedToken />
             )}
-          </ComponentWrapper>
+          </StyledComponentContainer>
         </Grid>
       </Grid>
     </Container>
